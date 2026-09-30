@@ -6,8 +6,7 @@ import ValuesSection from "@/components/sections/ValuesSection";
 import LeadershipSection from "@/components/sections/LeadershipSection";
 import CampusSection from "@/components/sections/CampusSection";
 import CommunityImpactSection from "@/components/sections/CommunityImpactSection";
-import LeadCTASection from "@/components/sections/LeadCTASection";
-import { pages, sectionContent, callsToAction, missionVision } from "@/data/pages";
+import { pages, sectionContent, missionVision } from "@/data/pages";
 import { values, impactStats } from "@/data/company";
 import { team } from "@/data/team";
 import { campuses } from "@/data/campuses";
@@ -26,7 +25,6 @@ export default function AboutPage() {
       <LeadershipSection {...sectionContent.leadership} members={team} />
       <CampusSection {...sectionContent.campus} campuses={campuses} />
       <CommunityImpactSection {...sectionContent.impact} stats={impactStats} />
-      <LeadCTASection {...callsToAction.join} />
     </>
   );
 }

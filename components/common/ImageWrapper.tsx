@@ -7,6 +7,6 @@ export interface ImageWrapperProps { image?: ImageAsset; ratio?: "landscape" | "
 export default function ImageWrapper({ image, ratio = "landscape", className, sizes = IMAGE_SIZES, priority = false }: ImageWrapperProps) {
   return <div className={cn("image-wrapper", `ratio-${ratio}`, className)}>
     {image?.src ? <Image src={image.src} alt={image.alt} fill sizes={sizes} priority={priority} />
-      : <span className="image-placeholder">Image pending approval</span>}
+      : <span className="image-placeholder" role="img" aria-label="Image to be added when approved"><span aria-hidden="true" className="placeholder-arch" /><span>Image to be added</span></span>}
   </div>;
 }

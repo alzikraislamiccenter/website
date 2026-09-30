@@ -12,7 +12,7 @@ export default function MobileNav({ items }: { items: NavigationItem[] }) {
   return <div className="mobile-nav" onKeyDown={event => { if (event.key === "Escape") { setOpen(false); event.currentTarget.querySelector("button")?.focus(); } }}>
     <button type="button" aria-expanded={open} aria-controls={id} onClick={() => setOpen(!open)}>Menu</button>
     <nav id={id} aria-label="Mobile navigation" hidden={!open}><ul className="nav-list">
-      {items.map(item => <li key={item.href}><Link href={item.href} onClick={() => setOpen(false)} aria-current={pathname === item.href ? "page" : undefined}>{item.label}</Link></li>)}
+      {items.map(item => <li key={item.label}>{item.children ? <details><summary>{item.label}</summary><ul className="mobile-subnav">{item.children.map(child => <li key={child.href}><Link href={child.href} onClick={() => setOpen(false)}>{child.label}</Link></li>)}</ul></details> : item.href ? <Link href={item.href} onClick={() => setOpen(false)} aria-current={pathname === item.href ? "page" : undefined}>{item.label}</Link> : null}</li>)}
     </ul></nav>
   </div>;
 }
