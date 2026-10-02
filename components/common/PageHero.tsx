@@ -6,6 +6,7 @@ import AnimatedArrow from "./AnimatedArrow";
 import { cn } from "@/lib/utils";
 import type { Alignment, BreadcrumbItem, CTA, ImageAsset } from "@/types/common";
 import Image from "next/image";
+import GoBackButton from "./GoBackButton";
 
 export interface PageHeroProps {
   eyebrow?: string;
@@ -15,19 +16,22 @@ export interface PageHeroProps {
   breadcrumbs?: BreadcrumbItem[];
   primaryCTA?: CTA;
   secondaryCTA?: CTA;
+  backButton?: boolean;
   alignment?: Alignment;
   variant?: "default" | "home" | "compact";
 }
-export default function PageHero({ eyebrow, title, description, backgroundImage, breadcrumbs, primaryCTA, secondaryCTA, alignment = "left", variant = "default" }: PageHeroProps) {
+export default function PageHero({ eyebrow, title, description, backgroundImage, breadcrumbs, primaryCTA, secondaryCTA, backButton = false, alignment = "left", variant = "home" }: PageHeroProps) {
+  const heroImage = backgroundImage ?? { src: "/assets/home/images/hero-architecture.png", alt: "" };
   return <section className={cn("page-hero", `hero-${variant}`, `align-${alignment}`)} data-header-surface={variant === "home" ? "dark" : undefined}>
-    {variant === "home" && <>{backgroundImage && <Image src={backgroundImage.src} alt={backgroundImage.alt} fill priority fetchPriority="high" sizes="100vw" quality={85} className="home-hero-image" />}<div className="home-hero-shade" aria-hidden="true" /></>}
+    {variant === "home" && <><Image src={heroImage.src} alt={heroImage.alt} fill priority fetchPriority="high" sizes="100vw" quality={85} className="home-hero-image" /><div className="home-hero-shade" aria-hidden="true" /></>}
     <Container className={variant === "home" ? "hero-layout" : undefined}>
       <div className="hero-copy">
       {breadcrumbs && <Breadcrumbs items={breadcrumbs} />}
       {eyebrow && <p className="eyebrow">{eyebrow}</p>}
       <h1>{title}</h1>
       {description && <p className="hero-description">{description}</p>}
-      {(primaryCTA || secondaryCTA) && <div className="actions">
+      {(backButton || primaryCTA || secondaryCTA) && <div className="actions">
+        {backButton && <GoBackButton />}
         {primaryCTA && <Button href={primaryCTA.href}>{primaryCTA.label}{variant === "home" && <AnimatedArrow />}</Button>}
         {secondaryCTA && <Button href={secondaryCTA.href} variant="secondary">{secondaryCTA.label}{variant === "home" && <AnimatedArrow />}</Button>}
       </div>}

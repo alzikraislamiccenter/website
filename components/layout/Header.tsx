@@ -11,7 +11,7 @@ import Button from "@/components/common/Button";
 import AnimatedArrow from "@/components/common/AnimatedArrow";
 
 export default function Header() {
-  const home = usePathname() === "/";
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [surface, setSurface] = useState<"dark" | "light">("dark");
   useEffect(() => {
@@ -36,6 +36,6 @@ export default function Header() {
       window.removeEventListener("scroll", update);
       window.removeEventListener("resize", update);
     };
-  }, [home]);
-  return <header className={`site-header ${home ? "site-header--home" : ""} ${scrolled ? "site-header--scrolled" : ""} site-header--on-${surface}`}><Container className="header-inner"><Logo header /><DesktopNav items={site.navigation} /><div className="header-actions"><Button href="/academics/admission">Apply for Admission <AnimatedArrow /></Button><MobileNav items={site.navigation} /></div></Container></header>;
+  }, [pathname]);
+  return <header className={`site-header site-header--home ${scrolled ? "site-header--scrolled" : ""} site-header--on-${surface}`}><Container className="header-inner"><Logo header /><DesktopNav items={site.navigation} /><div className="header-actions"><Button href="/academics/admission">Apply for Admission <AnimatedArrow /></Button><MobileNav items={site.navigation} /></div></Container></header>;
 }

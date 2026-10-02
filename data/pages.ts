@@ -6,7 +6,7 @@ interface PageContent { seo: PageSEO; hero: PageHeroProps }
 function page(title: string, path: string, description: string): PageContent {
   return {
     seo: { title, path, description },
-    hero: { title, description, breadcrumbs: [{ label: "Home", href: "/" }, { label: title }], primaryCTA: { label: "Send an enquiry", href: "/contact#enquiry" } },
+    hero: { eyebrow: "Al Zikra Islamic Center", title, description, backButton: true, secondaryCTA: { label: "Contact Us", href: path === "/contact" ? "/contact#enquiry" : "/contact" } },
   };
 }
 export const pages = {
