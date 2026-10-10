@@ -16,7 +16,7 @@ export default function FooterCTA() {
   }
 
   return <section className="footer-cta" data-header-surface="dark" aria-labelledby="footer-cta-title">
-    <Image className="footer-cta-image" src="/assets/home/images/hero-architecture.png" alt="" fill sizes="100vw" />
+    <Image className="footer-cta-image" src="/assets/page-imagery/footer-cta.webp" alt="" fill sizes="100vw" />
     <div className="footer-cta-shade" />
     <div className="footer-cta-content">
       <p className="footer-cta-eyebrow">Stay connected</p>

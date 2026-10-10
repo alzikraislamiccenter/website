@@ -7,6 +7,8 @@ import FooterFAQ from "./FooterFAQ";
 import FooterCTA from "./FooterCTA";
 
 export default function SharedSections() {
-  const career = usePathname() === "/about/career";
-  return <>{!career && <><StudentGallery /><Testimonials /></>}<FooterFAQ /><FooterCTA /></>;
+  const pathname = usePathname();
+  const career = pathname === "/about/career";
+  const focused = pathname === "/contact" || pathname === "/faqs" || pathname === "/sitemap";
+  return <>{!career && !focused && <><StudentGallery /><Testimonials /></>}{!focused && <FooterFAQ />}<FooterCTA /></>;
 }

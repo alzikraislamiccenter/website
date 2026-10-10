@@ -37,5 +37,5 @@ export default function Header() {
       window.removeEventListener("resize", update);
     };
   }, [pathname]);
-  return <header className={`site-header site-header--home ${scrolled ? "site-header--scrolled" : ""} site-header--on-${surface}`}><Container className="header-inner"><Logo header /><DesktopNav items={site.navigation} /><div className="header-actions"><Button href="/academics/admission">Apply for Admission <AnimatedArrow /></Button><MobileNav items={site.navigation} /></div></Container></header>;
+  return <header className={`site-header site-header--home ${scrolled ? "site-header--scrolled" : ""} site-header--on-${surface}`}><Container className="header-inner"><Logo header /><DesktopNav items={site.navigation} /><div className="header-actions"><Button href="/academics/admission">Get Admission <AnimatedArrow /></Button><MobileNav key={pathname} items={site.navigation} /></div></Container></header>;
 }

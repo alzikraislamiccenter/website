@@ -11,14 +11,14 @@ export default function HomeJourneySection() {
         <div className="journey-heading">
           <span>ABOUT AL ZIKRA</span>
           <h2 id="journey-title">Timeline &amp; History</h2>
-          <p>Four chapters in the Al Zikra journey.</p>
+          <p>Quran, knowledge, character and excellence since 2009.</p>
         </div>
         <div className="journey-art" aria-hidden="true">
-          <div className="journey-note">Learning with purpose, growing together</div>
+          <div className="journey-note">Memorize. Understand. Live.</div>
           <span className="journey-quote-mark">“</span>
-          <div className="journey-ribbon">QURAN LEARNING · COMMUNITY · CONNECTION ·</div>
+          <div className="journey-ribbon">QURAN · KNOWLEDGE · CHARACTER · EXCELLENCE ·</div>
           <div className="journey-image"><Image src="/assets/gallery/student-reading-boy.webp" alt="" fill sizes="(max-width: 600px) 160px, 240px" /></div>
-          <div className="journey-quote"><span>✦</span><p>A space to learn, remember, and grow.</p></div>
+          <div className="journey-quote"><span>✦</span><p>The Quran should be reflected in character and conduct.</p></div>
         </div>
         <ol className="journey-timeline">
           {journeyMilestones.map(item => <li key={item.year}>
@@ -32,7 +32,7 @@ export default function HomeJourneySection() {
     </div>
     <div className="home-journey-bottom"><Container>
       <div className="journey-facts">{journeyFacts.map(fact => <div key={fact.label}><strong>{fact.value}</strong><span>{fact.label}</span></div>)}</div>
-      <div className="journey-bottom-content"><div><h3>Learning, one chapter at a time.</h3><Button href="/about" variant="secondary">About Al Zikra <AnimatedArrow /></Button></div><p>Explore the centre, its learning areas, and the people and ideas that shape its story. More details about each milestone can be added as the history is confirmed.</p></div>
+      <div className="journey-bottom-content"><div><h3>Learning, one chapter at a time.</h3><Button href="/about" variant="secondary">About Al Zikra <AnimatedArrow /></Button></div><p>Established in 2009, Al Zikra combines structured Quranic learning, Islamic knowledge, family partnership and character development in a non-residential environment.</p></div>
     </Container></div>
   </section>;
 }

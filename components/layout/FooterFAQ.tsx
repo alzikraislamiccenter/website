@@ -3,8 +3,9 @@ import Container from "@/components/common/Container";
 import Accordion from "@/components/ui/Accordion";
 import AnimatedArrow from "@/components/common/AnimatedArrow";
 import { faqs } from "@/data/faqs";
+import type { FAQ } from "@/types/faq";
 
-export default function FooterFAQ() {
+export default function FooterFAQ({ items = faqs.slice(0, 6) }: { items?: FAQ[] }) {
   return <section id="faqs" className="footer-faq" aria-labelledby="footer-faq-title">
     <Container className="footer-faq-inner">
       <div className="footer-faq-intro">
@@ -17,7 +18,7 @@ export default function FooterFAQ() {
           <Link href="/contact"><AnimatedArrow className="footer-faq-contact-icon" />Contact us</Link>
         </aside>
       </div>
-      <Accordion items={faqs} defaultOpenFirst />
+      <Accordion items={items} defaultOpenFirst />
     </Container>
   </section>;
 }

@@ -1,0 +1,34 @@
+.section { background: #fcfaf6; color: #302319; }
+.headingRow { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(16rem, .7fr); align-items: end; gap: clamp(2rem, 6vw, 6rem); margin-bottom: clamp(2rem, 4.5vw, 4rem); }
+.heading { max-width: 12ch; margin: .6rem 0 0; font-size: clamp(3rem, 6.2vw, 6.6rem); line-height: .98; letter-spacing: -.055em; text-wrap: balance; }
+.headingAside { max-width: 22rem; padding-bottom: .25rem; }
+.headingAside p { margin: 1.1rem 0 0; color: #675f53; font-size: .88rem; line-height: 1.55; }
+.readButton { justify-content: space-between; gap: .4rem; min-height: 2.8rem; padding: .65rem .9rem; border-color: #3b2c20; background: #3b2c20; color: #fffaf0; font-size: .82rem; }
+.readButton:hover, .readButton:focus-visible { background: transparent; border-color: #3b2c20; color: #3b2c20; }
+.feature { display: grid; grid-template-columns: minmax(0, 32%) minmax(0, 1fr); min-height: clamp(23rem, 36vw, 32rem); border: 1px solid #e2d8c7; }
+.portrait { position: relative; min-height: 100%; overflow: hidden; background: #d7c9b5; }
+.portraitImage { object-fit: cover; object-position: center 25%; }
+.portraitLabel { position: absolute; bottom: 1rem; left: 1rem; padding: .35rem .55rem; background: rgb(48 35 25 / .88); color: #fffaf0; font-size: .63rem; letter-spacing: .07em; text-transform: uppercase; }
+.quotePanel { display: flex; flex-direction: column; justify-content: center; padding: clamp(2rem, 5.5vw, 6rem); }
+.quoteMark { height: .75em; color: #d8b96f; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(5rem, 9vw, 9rem); line-height: 1; }
+.quotePanel blockquote { margin: 0; }
+.quotePanel blockquote p { max-width: 22ch; margin: 1rem 0 2rem; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(1.75rem, 3vw, 3.2rem); line-height: 1.14; letter-spacing: -.04em; text-wrap: balance; }
+.quotePanel blockquote footer { display: flex; flex-wrap: wrap; gap: .25rem .6rem; color: #3b2c20; font-size: .76rem; font-weight: 700; }
+.quotePanel blockquote footer span { color: #766b5d; font-weight: 400; }
+.fullMessage { display: grid; grid-template-columns: minmax(0, .7fr) minmax(0, 1.3fr); gap: clamp(2rem, 5vw, 5rem); padding: clamp(2rem, 5vw, 4rem) 0 0; }
+.fullMessageHeading h3 { margin: .6rem 0 0; font-size: clamp(2rem, 3vw, 3.2rem); }
+.fullMessageBody { max-width: 46rem; }
+.fullMessageBody p { margin-bottom: 1.25rem; color: #51463a; font-size: .96rem; line-height: 1.75; }
+.fullMessageBody .signature { margin: 2rem 0 0; color: #3b2c20; font-weight: 700; }
+@media (max-width: 700px) {
+  .headingRow { grid-template-columns: 1fr; gap: 1.5rem; }
+  .heading { font-size: clamp(2.65rem, 12vw, 4rem); }
+  .headingAside p { margin-top: .7rem; }
+  .feature { grid-template-columns: 1fr; }
+  .portrait { min-height: 20rem; }
+  .portraitImage { object-position: center 29%; }
+  .quotePanel { padding: 1.8rem 1.4rem 2.2rem; }
+  .quoteMark { font-size: 5.5rem; }
+  .quotePanel blockquote p { margin: .8rem 0 1.5rem; font-size: clamp(1.55rem, 6.5vw, 2.3rem); }
+  .fullMessage { grid-template-columns: 1fr; gap: 1.25rem; }
+}

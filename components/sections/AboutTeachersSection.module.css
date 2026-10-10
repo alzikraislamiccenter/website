@@ -1,0 +1,18 @@
+.section { background: #f8f4ed; }
+.heading { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); align-items: end; gap: clamp(2rem, 6vw, 6rem); margin-bottom: clamp(2.5rem, 5vw, 4.5rem); }
+.heading h2 { max-width: none; margin: .5rem 0 0; color: #3b2c20; font-size: clamp(3rem, 5vw, 5rem); letter-spacing: -.05em; }
+.heading p { max-width: 44ch; margin: 0 0 .4rem; color: #675f53; font-size: clamp(1rem, 1.25vw, 1.15rem); line-height: 1.65; }
+.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1.25rem, 3vw, 3rem); }
+.item { padding-top: 1.3rem; border-top: 1px solid #cbb999; }
+.portrait { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.2rem; aspect-ratio: 4 / 3; margin-bottom: 1.5rem; background: #e9dfcf; color: #8d765b; }
+.portrait svg { width: 5.5rem; height: 5.5rem; stroke: currentColor; stroke-width: 1.4; }
+.portrait span { font-size: .68rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+.item > span { color: #9b7640; font-family: Georgia, 'Times New Roman', serif; font-size: 2.2rem; line-height: 1; }
+.item h3 { max-width: none; margin: 1.5rem 0 .7rem; color: #3b2c20; font-family: Arial, Helvetica, sans-serif; font-size: clamp(1.2rem, 1.6vw, 1.5rem); font-weight: 500; letter-spacing: -.025em; }
+.item p { max-width: 35ch; margin: 0; color: #716759; font-size: .95rem; line-height: 1.6; }
+.note { margin: 2.5rem 0 0; color: #8a7b68; font-size: .78rem; }
+@media (max-width: 760px) {
+  .heading { grid-template-columns: 1fr; gap: 1rem; }
+  .grid { grid-template-columns: 1fr; gap: 2rem; }
+  .item h3 { margin-top: .8rem; }
+}

@@ -21,6 +21,7 @@ function fileType(bytes: Buffer, name: string) {
 }
 
 export async function POST(request: NextRequest) {
+  if (!jobs.length) return invalid("No positions are open right now.", 503);
   const origin = request.headers.get("origin");
   if (origin && origin !== request.nextUrl.origin) return invalid("Request origin is not allowed.", 403);
   const size = Number(request.headers.get("content-length") || 0);

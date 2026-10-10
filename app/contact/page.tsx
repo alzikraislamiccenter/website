@@ -1,14 +1,10 @@
-import { pages, sectionContent } from "@/data/pages";
+import { pages } from "@/data/pages";
 import PageHero from "@/components/common/PageHero";
-import ContactSection from "@/components/sections/ContactSection";
-import CampusSection from "@/components/sections/CampusSection";
-import Section from "@/components/common/Section";
+import AboutBranchesSection from "@/components/sections/AboutBranchesSection";
 import ContactForm from "@/components/common/ContactForm";
-import SocialLinks from "@/components/common/SocialLinks";
 import { campuses } from "@/data/campuses";
-import { socialLinks } from "@/data/socialLinks";
 import { contact } from "@/data/contact";
-import { site } from "@/config/site";
+import { company } from "@/data/company";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata(pages.contact.seo);
@@ -17,12 +13,19 @@ export default function ContactPage() {
   return (
     <>
       <PageHero {...pages.contact.hero} />
-      <ContactSection {...sectionContent.contact} phone={site.phone} email={site.email} addresses={site.addresses} />
-      <CampusSection {...sectionContent.campus} campuses={campuses} />
-      <Section {...sectionContent.form} id="enquiry" variant="muted"><ContactForm notice={contact.formNotice} /></Section>
-      <Section {...sectionContent.hours}><dl className="hours-list">{contact.hours.map(entry => <div key={entry.id}><dt>{entry.days}</dt><dd>{entry.hours}</dd></div>)}</dl></Section>
-      <Section {...sectionContent.location}>{contact.mapUrl ? <a href={contact.mapUrl}>View centre location on map</a> : <p>{contact.locationNote}</p>}</Section>
-      <Section {...sectionContent.social}><SocialLinks links={socialLinks} /></Section>
+      <section className="section contact-enquiry-section" id="enquiry" aria-labelledby="contact-enquiry-title">
+        <div className="container contact-enquiry-layout">
+          <div className="contact-enquiry-copy">
+            <div><span className="eyebrow">We&apos;re here to help</span><h2 id="contact-enquiry-title">Contact Us<sup>01</sup></h2></div>
+            <div className="contact-enquiry-details">
+              <div><span>Head office</span><p>{campuses[0].address}</p></div>
+              <div><span>Email</span><p><a href={`mailto:${company.email}`}>{company.email}</a></p></div>
+            </div>
+          </div>
+          <ContactForm notice={contact.formNotice} />
+        </div>
+      </section>
+      <AboutBranchesSection campuses={campuses} />
     </>
   );
 }

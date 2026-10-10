@@ -28,14 +28,14 @@ export default function ContactForm({ notice, enabled = false }: { notice: strin
   }
 
   return <form className="contact-form" aria-label="Contact form" onSubmit={submit}>
-    <p className="form-notice">{notice}</p>
     <div className="form-row">
-      <label htmlFor="contact-name">Name <span aria-hidden="true">*</span><input id="contact-name" name="name" autoComplete="name" maxLength={100} required /></label>
-      <label htmlFor="contact-email">Email <span aria-hidden="true">*</span><input id="contact-email" type="email" name="email" autoComplete="email" maxLength={254} required /></label>
+      <label htmlFor="contact-name">Full Name <span aria-hidden="true">*</span><input id="contact-name" name="name" autoComplete="name" maxLength={100} placeholder="Your full name" required /></label>
+      <label htmlFor="contact-email">Email address <span aria-hidden="true">*</span><input id="contact-email" type="email" name="email" autoComplete="email" maxLength={254} placeholder="you@example.com" required /></label>
     </div>
-    <label htmlFor="contact-subject">Subject <span aria-hidden="true">*</span><input id="contact-subject" name="subject" maxLength={160} required /></label>
-    <label htmlFor="contact-message">Message <span aria-hidden="true">*</span><textarea id="contact-message" name="message" rows={6} minLength={10} maxLength={5000} required /></label>
+    <label htmlFor="contact-subject">What can we help with? <span aria-hidden="true">*</span><input id="contact-subject" name="subject" maxLength={160} placeholder="Programme or admission enquiry" required /></label>
+    <label htmlFor="contact-message">Message <span aria-hidden="true">*</span><textarea id="contact-message" name="message" rows={7} minLength={10} maxLength={5000} placeholder="Tell us how we can help" required /></label>
     <div className="honeypot" aria-hidden="true"><label htmlFor="contact-website">Website<input id="contact-website" name="website" tabIndex={-1} autoComplete="off" /></label></div>
     <div className="form-actions"><Button type="submit" disabled={!enabled || state === "sending"}>{state === "sending" ? "Sending…" : "Send enquiry"}</Button><p aria-live="polite" className={`form-status ${state}`}>{message}</p></div>
+    <p className="form-notice">{notice}</p>
   </form>;
 }

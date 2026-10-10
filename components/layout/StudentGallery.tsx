@@ -34,11 +34,6 @@ export default function StudentGallery() {
     return () => document.removeEventListener("keydown", onKeyDown);
   }, [activeVideo]);
 
-  const openVideo = (item: StudentGalleryItem, trigger: HTMLButtonElement) => {
-    videoTrigger.current = trigger;
-    setVideoError(false);
-    setActiveVideo(item);
-  };
   const closeVideo = () => {
     setActiveVideo(null);
     videoTrigger.current?.focus();
@@ -61,7 +56,7 @@ export default function StudentGallery() {
     inert={leaving}
   >
     {Array.from({ length: visibleItems }, (_, position) => studentGallery[(index * slideStep + position) % studentGallery.length]).map(item => <div className="student-gallery-tile" key={item.id}>
-      {item.kind === "video" ? <button type="button" className="student-gallery-video" aria-label={`Play ${item.alt.toLowerCase()}`} onClick={event => openVideo(item, event.currentTarget)}>
+      {item.kind === "video" ? <button type="button" className="student-gallery-video" aria-label={`Play ${item.alt.toLowerCase()}`} onClick={event => { videoTrigger.current = event.currentTarget; setVideoError(false); setActiveVideo(item); }}>
         <Image src={item.poster} alt="" fill sizes="(max-width: 700px) 90vw, (max-width: 1100px) 50vw, 33vw" />
         <span className="student-gallery-play" aria-hidden="true">▶</span>
       </button> : <Image src={item.poster} alt={item.alt} fill sizes="(max-width: 700px) 90vw, (max-width: 1100px) 50vw, 33vw" />}

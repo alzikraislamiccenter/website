@@ -3,21 +3,23 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { createPortal } from "react-dom";
-import { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState, useSyncExternalStore } from "react";
 import Logo from "@/components/common/Logo";
 import type { NavigationItem } from "@/types/navigation";
 
+const subscribe = () => () => {};
+const clientSnapshot = () => true;
+const serverSnapshot = () => false;
+
 export default function MobileNav({ items }: { items: NavigationItem[] }) {
   const [open, setOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const mounted = useSyncExternalStore(subscribe, clientSnapshot, serverSnapshot);
   const pathname = usePathname();
   const id = useId();
   const triggerRef = useRef<HTMLButtonElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLElement>(null);
 
-  useEffect(() => setMounted(true), []);
-  useEffect(() => setOpen(false), [pathname]);
   useEffect(() => {
     if (!open) return;
     const previousOverflow = document.body.style.overflow;
@@ -52,7 +54,7 @@ export default function MobileNav({ items }: { items: NavigationItem[] }) {
         <nav aria-label="Mobile navigation"><ul className="mobile-menu-list">
           {items.map(item => <li key={item.label}>{item.children ? <details><summary>{item.label}<span className="mobile-menu-chevron" aria-hidden="true" /></summary><ul className="mobile-subnav">{item.children.map(child => <li key={child.href}><Link href={child.href} onClick={close}>{child.label}</Link></li>)}</ul></details> : item.href ? <Link href={item.href} onClick={close} aria-current={pathname === item.href ? "page" : undefined}>{item.label}</Link> : null}</li>)}
         </ul></nav>
-        <Link className="mobile-menu-cta" href="/academics/admission" onClick={close}>Apply for Admission <span aria-hidden="true">↗</span></Link>
+        <Link className="mobile-menu-cta" href="/academics/admission" onClick={close}>Get Admission <span aria-hidden="true">↗</span></Link>
       </aside>
     </div>, document.body)}
   </div>;

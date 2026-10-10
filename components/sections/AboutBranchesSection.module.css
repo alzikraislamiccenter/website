@@ -1,0 +1,21 @@
+.section { background: #fcfaf6; }
+.heading { max-width: 52rem; margin: 0 auto clamp(2.5rem, 5vw, 4.5rem); text-align: center; }
+.heading h2 { max-width: none; margin: .5rem 0 1rem; color: #3b2c20; font-size: clamp(2.5rem, 5vw, 5rem); letter-spacing: -.05em; line-height: 1.06; }
+.heading h2 em { color: #7d6028; font-weight: 400; }
+.heading p { max-width: 47rem; margin: 0 auto; color: #675f53; font-size: clamp(.9rem, 1.15vw, 1.05rem); line-height: 1.6; }
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1rem, 2vw, 1.75rem); }
+.card { min-width: 0; overflow: hidden; border: 1px solid #e2d8c7; border-radius: .3rem; background: #f8f4ed; }
+.cardHead { min-height: 12rem; padding: clamp(1.5rem, 3vw, 2.4rem); background: #3b2c20; color: #fcfaf6; }
+.tag { display: inline-block; padding: .3rem .7rem; border: 1px solid #ad8b56; border-radius: 99px; color: #e2c88c; font-size: .66rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+.cardHead h3 { max-width: none; margin: 1.4rem 0 .35rem; color: inherit; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(1.6rem, 2.4vw, 2.25rem); font-weight: 400; line-height: 1.15; }
+.city { color: #e2c88c; font-size: .88rem; }
+.cardBody { display: grid; grid-template-columns: 2.7rem minmax(0, 1fr); gap: .85rem; align-items: start; min-height: 9rem; padding: clamp(1.5rem, 3vw, 2.4rem); }
+.icon { display: grid; place-items: center; width: 2.5rem; height: 2.5rem; border-radius: 50%; background: #fffdfa; color: #8d6a35; }
+.icon svg { width: 1.25rem; height: 1.25rem; }
+.label { color: #9a7540; font-size: .65rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; }
+.cardBody p { max-width: none; margin: .35rem 0 0; color: #3b2c20; font-size: clamp(.92rem, 1.1vw, 1rem); line-height: 1.55; overflow-wrap: anywhere; }
+@media (max-width: 680px) {
+  .grid { grid-template-columns: 1fr; }
+  .cardHead { min-height: 0; }
+  .cardBody { min-height: 0; }
+}

@@ -1,7 +1,11 @@
 export interface CentreHours { id: string; days: string; hours: string }
 export const contact = {
-  formNotice: "Enquiries are temporarily unavailable while email delivery is being configured. Fields marked * will be required when the form opens.",
-  hours: [{ id: "hours-placeholder", days: "Centre opening hours", hours: "To be confirmed" }] satisfies CentreHours[],
+  formNotice: "Online enquiries are temporarily unavailable while email delivery is being configured. Please email info@alzikra.org directly.",
+  hours: [
+    { id: "hifz", days: "Hifz-e-Quran", hours: "7:00 AM–5:00 PM; Sunday holiday" },
+    { id: "nazira", days: "Nazira-e-Quran", hours: "3:00 PM–5:00 PM; Sunday holiday" },
+    { id: "islamic-studies", days: "Islamic Studies / Aalim-e-Deen", hours: "Monday–Saturday, 7:00 AM–5:00 PM; Sunday holiday" },
+  ] satisfies CentreHours[],
   mapUrl: null as string | null,
-  locationNote: "A verified address and map link will be added here.",
+  locationNote: "Al Zikra has four branches in Rawalpindi and Islamabad. The head office is at Bismillah Musjid, Gulshan e Nayab, Westridge III, Rawalpindi. A verified map link has not yet been provided.",
 };
